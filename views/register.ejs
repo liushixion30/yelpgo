@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><% title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/stylesheets/yelp-login.css">
+
+  </head>
+  <body>
+
+    <div class="navbar-md navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/login"><img src="/images/logo.png"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        	<div class="span6">	
+        		<div class="register-info-wraper">
+        			<div id="register-info">
+        				<h1>You are about 30 seconds away from using EatrLoop! Hurry up! </h1>        			
+        				<ul dir="rtl">
+        					<li>Restaurant reviews</li>
+        					<li>!Add friends, see what they are eating </li>
+        					<li>!Eat with friends </li>
+        					<li>More features</li>
+        				</ul>        				
+        			</div>
+        		</div>
+        	</div>
+        	<div class="span6">
+        		<div id="register-wraper">
+        		    <form id="register-form" action="/user-register" method="POST" >
+        		        <legend>Register to <span class="blue">EatrLoop</span></legend>        		    
+        		        <div class="body">
+        		        	<!-- first name -->
+        		        	<div class="control-group control-inline">
+        		        		<label for="name">First name</label>
+        		        		<input name="firstname" class="input-medium" type="text">
+        		        	</div>
+        		        	<!-- last name -->
+        		        	<div class="control-group control-inline">
+        		        		<label for="lastname">Last name</label>
+        		        		<input name="lastname" class="input-medium" type="text">
+        		        	</div>							
+        		        	<!-- email -->
+        		        	<label>E-mail</label>
+        		        	<input class="input-huge" name="email" type="text">
+        		        	<!-- username -->
+        		        	<label>Username</label>
+        		        	<input class="input-huge" name="username" type="text">
+
+        		        	<!-- password -->
+        		        	<label>Password</label>
+        		        	<input class="input-huge" name="password" type="password">
+							
+        		        	<!-- confirm password -->
+        		        	<label>Confirm Password</label>
+        		        	<input class="input-huge" name="confirmpassword" type="password">
+        		        </div>      		    
+        		        <div class="footer">
+        		            <label class="checkbox inline">
+        		                <input type="checkbox" id="inlineCheckbox1" value="option1"> I agree to something I will never read
+        		            </label>
+        		            <button type="submit" name = "submit" class="btn btn-success">Register</button>
+        		        </div>
+        		    </form>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+    <footer class="white navbar navbar-fixed-bottom">
+      Alread have an account? <a href="/login">Sign in</a>
+    </footer>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/backstretch.min.js"></script>
+    <script src="/javascripts/yelp-login.js"></script>
+
+  </body>
+</html>
