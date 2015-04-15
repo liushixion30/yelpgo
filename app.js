@@ -12,6 +12,7 @@ var oracledemo = require('./routes/oracledemo');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var user_register = require('./routes/user-register');
+var restaurants = require('./routes/restaurants');
 
 var app = express();
 
@@ -33,11 +34,8 @@ app.use('/oracledemo',oracledemo);
 app.use('/login',login);
 app.use('/register',register);
 app.use('/user-register',user_register);
-// app.post("/user-register", function(req,res){
-// 	var username = req.body.username;
-// 	var password = req.body.password;
-// 	res.send(username);
-// });
+app.use('/restaurants',restaurants);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,8 +44,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-
-// error handlers
 
 // development error handler
 // will print stacktrace

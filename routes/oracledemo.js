@@ -10,7 +10,7 @@ oracledb.getConnection(
   {
     if (err) { console.error(err); return; }
     connection.execute(
-      "select * from BUSINESS where ROWNUM  < 10",
+      "select * from BUSINESS where ROWNUM  = 1",
       function(err, result)
       {
         if (err) { console.error(err); return; }
