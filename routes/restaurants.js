@@ -2,6 +2,9 @@ var oracledb = require('oracledb');
 var express = require('express');
 var router = express.Router();
 var res_result = '';
+var hour_result = '';
+var testVar = false;
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	oracledb.getConnection(
@@ -14,15 +17,28 @@ router.get('/', function(req, res, next) {
 		{
 			if (err) { console.error(err); return; }
 			connection.execute(
-				"select * from BUSINESS where ROWNUM  < 10",
+				"select * from BUSINESS where ROWNUM  < 20",
 				function(err, result)
 				{
 					if (err) { console.error(err); return; }
 					res_result = result.rows;
-					console.log(res_result);
+					// // console.log(res_result);
+					console.log("here:");
+					console.log(userProfile.id);
+					connection.execute(
+						"select * from BUSINESS_HOURS where ROWNUM  < 20",
+						function(err, result)
+						{
+							if (err) { console.error(err); return; }
+							hour_result = result.rows;
+							// console.log(hour_result);
+						});
 				});
 			});
-			res.render('restaurants', { allrestaurants: res_result});
+			if(!testVar){
+			res.render('restaurants', { allrestaurants: res_result, restauranthours: hour_result});}
+			
+			
+			
 		});
-
 		module.exports = router;

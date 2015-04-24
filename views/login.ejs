@@ -18,9 +18,9 @@
 	</div>
 	<div class="container">
 		<div id="login-wraper">
-			<form class="form login-form" action="/restaurants">
+			<form class="form login-form" action="/verifyuser">
 				<legend>Sign in to <span class="blue">EatrLoop</span></legend>
-					<div class="body">
+				<div class="body">
 					<label>Username</label> 
 					<input type="text"> 
 					<label>Password</label>
@@ -28,16 +28,15 @@
 				</div>
 				<div class="footer">
 					<label class="checkbox inline"> 
-						<input type="checkbox" id="inlineCheckbox1" value="option1"> Remember me
+						<button type="submit" class="btn btn-success">Login</button>
 					</label>
-					<button type="submit" class="btn btn-success">Login</button>
 				</div>
 			</form>
 		</div>
 	</div>
 	<footer class="white navbar navbar-fixed-bottom">
 		Don"t have an account yet? <a href="/register"
-			>Register</a>
+			>Register</a> OR <a href="/auth/facebook"> Login with Facebook</a>
 	</footer>
 
 	<!-- Le javascript
