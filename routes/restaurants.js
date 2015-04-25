@@ -5,6 +5,8 @@ var res_result = '';
 var hour_result = '';
 var testVar = false;
 
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	oracledb.getConnection(
@@ -21,6 +23,16 @@ router.get('/', function(req, res, next) {
 				function(err, result)
 				{
 					if (err) { console.error(err); return; }
+					
+					connection.execute(
+					      "INSERT INTO app_user VALUES (:USER_ID, :USER_PASSWORD, :FIRST_NAME, :LAST_NAME, :EMAIL)",[userProfile.id,'',userProfile.name.givenName,userProfile.name.familyName,userProfile.emails[0].value],
+						{isAutoCommit: true},
+						  function(err, result)
+					      {
+					        if (err) { console.error(err); return; }
+					        console.log(result);
+					      });
+						
 					res_result = result.rows;
 					// // console.log(res_result);
 					console.log("here:");
@@ -33,6 +45,8 @@ router.get('/', function(req, res, next) {
 							hour_result = result.rows;
 							// console.log(hour_result);
 						});
+						
+					
 				});
 			});
 			if(!testVar){
