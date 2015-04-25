@@ -66,6 +66,7 @@ app.use(passport.session());
 
 app.use('/oracledemo',oracledemo);
 app.use('/login',login);
+app.use('/',login);
 app.use('/register',register);
 app.use('/user-register',user_register);
 app.use('/restaurants',restaurants);
@@ -81,6 +82,24 @@ app.get('/logout', function(req, res){
 		// 	    console.log("there");
 		// console.log(userName);
 		req.logout(); res.redirect('/login');});
+		
+app.post('/addReview',function(req,res){
+	var review=req.body.review;
+	var userId = req.body.userid;
+	var resId = req.body.resId;
+	console.log("Review is = "+review + ", user id is = " + userId+", restaurant id = " + resId);
+	res.end("yes");
+});
+
+app.post('/addActivity',function(req,res){
+	// {time: activityTime, comment: activityComment, userid: userId, actId: activityButtonId}
+	var time = req.body.time;
+	var userId = req.body.userid;
+	var actId = req.body.actId;
+	var comment = req.body.comment;
+	console.log("time is = "+time + ", user id is = " + userId+", restaurant id = " + actId + ", comment is = " + comment);
+	res.end("yes");
+});
 
 
 // catch 404 and forward to error handler

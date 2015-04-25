@@ -50,7 +50,7 @@ router.get('/', function(req, res, next) {
 				});
 			});
 			if(!testVar){
-			res.render('restaurants', { allrestaurants: res_result, restauranthours: hour_result});}
+			res.render('restaurants', { allrestaurants: res_result, restauranthours: hour_result, userid: userProfile.id});}
 			
 			
 			
