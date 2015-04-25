@@ -21,6 +21,8 @@ var restaurants = require('./routes/restaurants');
 var friends_updates  = require('./routes/friendsupdates');
 var personal_activities = require('./routes/personalactivities');
 var add_friends = require('./routes/addfriends');
+var add_review = require('./routes/addreview');
+var add_activity = require('./routes/addactivity');
 
 var app = express();
 GLOBAL.userProfile = '';
@@ -74,35 +76,15 @@ app.use('/friendsupdates',friends_updates);
 app.use('/personalactivities',personal_activities);
 app.use('/',login);
 app.use('/addfriends',add_friends);
+app.use('/addReview', add_review);
+app.use('/addActivity',add_activity);
 app.get('/auth/facebook', passport.authenticate('facebook',{authType: 'reauthenticate', scope: ['email']}));
 
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { successRedirect: '/restaurants',
 failureRedirect: '/login'}));
 
-app.get('/logout', function(req, res){ 
-		// 	    console.log("there");
-		// console.log(userName);
-		req.logout(); res.redirect('/login');});
-		
-app.post('/addReview',function(req,res){
-	var review=req.body.review;
-	var userId = req.body.userid;
-	var resId = req.body.resId;
-	console.log("Review is = "+review + ", user id is = " + userId+", restaurant id = " + resId);
-	res.end("yes");
-});
-
-app.post('/addActivity',function(req,res){
-	// {time: activityTime, comment: activityComment, userid: userId, actId: activityButtonId}
-	var time = req.body.time;
-	var userId = req.body.userid;
-	var actId = req.body.actId;
-	var comment = req.body.comment;
-	console.log("time is = "+time + ", user id is = " + userId+", restaurant id = " + actId + ", comment is = " + comment);
-	res.end("yes");
-});
-
+app.get('/logout', function(req, res){req.logout(); res.redirect('/login');});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -133,6 +115,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

@@ -241,7 +241,6 @@
 					
 					function addActivity() {
 						activityTime = $("#datepicker").val();
-						
 						activityComment = $( ".comment" ).val();
 						userId = <%= userid %>;
 						$.post("http://localhost:3000/addActivity",{time: activityTime, comment: activityComment, userid: userId, actId: 							activityButtonId}, function(){

@@ -27,4 +27,4 @@ oracledb.getConnection(
     res.send('respond with a sql');
   });
 
-  module.exports = router;
+module.exports = router;
