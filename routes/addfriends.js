@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 	
 	
 	
-  res.render('friendsupdates', { title: 'Login' });
+  res.render('addfriends', { title: 'Login' });
   
 });
 
