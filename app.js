@@ -20,7 +20,7 @@ var user_register = require('./routes/user-register');
 var restaurants = require('./routes/restaurants');
 var friends_updates  = require('./routes/friendsupdates');
 var personal_activities = require('./routes/personalactivities');
-
+var add_friends = require('./routes/addfriends');
 
 var app = express();
 GLOBAL.userProfile = '';
@@ -71,6 +71,8 @@ app.use('/user-register',user_register);
 app.use('/restaurants',restaurants);
 app.use('/friendsupdates',friends_updates);
 app.use('/personalactivities',personal_activities);
+app.use('/',login);
+app.use('/addfriends',add_friends);
 app.get('/auth/facebook', passport.authenticate('facebook',{authType: 'reauthenticate', scope: ['email']}));
 
 app.get('/auth/facebook/callback',

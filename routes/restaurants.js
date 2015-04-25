@@ -45,7 +45,6 @@ router.get('/', function(req, res, next) {
 							hour_result = result.rows;
 							// console.log(hour_result);
 						});
-						
 					
 				});
 			});
