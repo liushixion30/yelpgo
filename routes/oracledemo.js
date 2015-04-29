@@ -17,13 +17,11 @@ oracledb.getConnection(
       function(err, result)
       {
         if (err) { console.error(err); return; }
+		console.log("test");
         console.log(result);
+		console.log(userProfile.id);
       });
   });
-
-
-
-  /* GET users listing. */
   router.get('/', function(req, res, next) {
     res.send('respond with a sql');
   });

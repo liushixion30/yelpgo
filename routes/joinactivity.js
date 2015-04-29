@@ -2,13 +2,9 @@ var express = require('express');
 var router = express.Router();
 var oracledb = require('oracledb');
 /* GET home page. */
-router.all('/', function(req, res, next) {
-	var review = req.body.review;
-	var userId = req.body.userid;
-	var resId = req.body.resId;
-	resId = resId.substring(0, resId.length - 1);
-	var addSecond = new Date().getTime() / 1000;
-	// console.log("Review is = "+review + ", user id is = " + userId+", restaurant id = " + resId+ ", addTime is＝ "+addSecond);
+router.post('/', function(req, res, next) {
+	var activity_id = req.body.activityId;
+	var user_id = req.body.userid;
 	oracledb.getConnection(
 		{
 			user          : "myusername",
@@ -19,7 +15,7 @@ router.all('/', function(req, res, next) {
 		{
 			if (err) { console.error(err); return; }
 			connection.execute(
-				"INSERT INTO USER_REVIEW VALUES (:USER_ID, :BUSINESS_ID, :SELF_REVIEEW, :ADD_TIME)",[userId,resId,review,addSecond],
+				"INSERT INTO ACTIVITY_PEOPLE VALUES (:ACTIVITY_ID, :USER_ID)",[activity_id,user_id],
 				{ isAutoCommit: true},
 				function(err,result)
 				{

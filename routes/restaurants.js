@@ -9,6 +9,11 @@ var testVar = false;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+	if(userProfile.id == undefined){
+		res.render('login', { title: 'Login' });
+	}else{
+		
+	
 	oracledb.getConnection(
 		{
 			user          : "myusername",
@@ -21,7 +26,7 @@ router.get('/', function(req, res, next) {
 			connection.execute(
 				"select * from BUSINESS where ROWNUM  < 20",
 				function(err, result)
-				{
+				{	
 					if (err) { console.error(err); return; }
 					
 					connection.execute(
@@ -34,7 +39,6 @@ router.get('/', function(req, res, next) {
 					      });
 						
 					res_result = result.rows;
-					// // console.log(res_result);
 					console.log("here:");
 					console.log(userProfile.id);
 					connection.execute(
@@ -43,15 +47,12 @@ router.get('/', function(req, res, next) {
 						{
 							if (err) { console.error(err); return; }
 							hour_result = result.rows;
-							// console.log(hour_result);
 						});
 					
 				});
 			});
 			if(!testVar){
 			res.render('restaurants', { allrestaurants: res_result, restauranthours: hour_result, userid: userProfile.id});}
-			
-			
-			
+		}
 		});
 		module.exports = router;

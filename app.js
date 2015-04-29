@@ -23,6 +23,8 @@ var personal_activities = require('./routes/personalactivities');
 var add_friends = require('./routes/addfriends');
 var add_review = require('./routes/addreview');
 var add_activity = require('./routes/addactivity');
+var friends_activity = require('./routes/friendsactivities');
+var joinactivity = require('./routes/joinactivity');
 
 var app = express();
 GLOBAL.userProfile = '';
@@ -48,7 +50,6 @@ passport.use(new FacebookStrategy({
 	  });
   }
 ));
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -78,6 +79,8 @@ app.use('/',login);
 app.use('/addfriends',add_friends);
 app.use('/addReview', add_review);
 app.use('/addActivity',add_activity);
+app.use('/friendsactivities',friends_activity);
+app.use('/joinActivity',joinactivity);
 app.get('/auth/facebook', passport.authenticate('facebook',{authType: 'reauthenticate', scope: ['email']}));
 
 app.get('/auth/facebook/callback',

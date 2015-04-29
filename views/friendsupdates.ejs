@@ -23,6 +23,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/restaurants">Restaurants Info</a></li>
 					<li class="active"><a href="/friendsupdates">Friends Updates<span class="sr-only">(current)</span></a></li>
+					<li><a href="/friendsactivities">Friends Activities</a></li>
 					<li><a href="/personalactivities">Personal Activities</a></li>
 					<li><a href="/addfriends">Add Friends</a></li>
 				</ul>
@@ -40,101 +41,36 @@
 			
 				
 	<div class="container">
+		<h2>Friends Reviews</h2>
 		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Test User 1</a> 
-						<small>commented on </small><a>King's Restaurant</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+			
+			<% for(var i=0; i < reviewlist.length; i++) { %>
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" src="http://vignette2.wikia.nocookie.net/feed-the-beast/images/8/88/Shards-64x64.gif/revision/latest?cb=20131110151438" alt="">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading"><a><%= reviewlist[i][1]%> <%= reviewlist[i][2]%></a>
+								<small>commented on </small><a><%= reviewlist[i][0]%></a></h4>
+								<%= reviewlist[i][5]%>
+					</div>
 				</div>
+				<br><br>
+						<% } %>	
+						
 			</div>
 		</div>
-		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Test User 2</a> 
-						<small>created an activity to </small><a>Don Don Chinese Restaurant</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Come to my page and join me!
-				</div>
-			</div>
-		</div>
-		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Test User 3</a> 
-						<small>commented on </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</div>
-		</div>
-		
-		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Test User 4</a> 
-						<small>commented on </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</div>
-		</div>
-		
-		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Test User 5</a> 
-						<small>commented on </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</div>
-		</div>
-		
-		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Test User 4</a> 
-						<small>created a activity to </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					
-				</div>
-			</div>
-		</div>
-		
-		
-	</div>
 
-	<!-- Le javascript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
+				<!-- Le javascript
+					================================================== -->
+					<!-- Placed at the end of the document so the pages load faster -->
 
-		<script src="/javascripts/jquery.js"></script>
-		<script src="/javascripts/bootstrap.js"></script>
-		<script type="text/javascript" src="/javascripts/backstretch.min.js"></script>
-		<script type="text/javascript" src="/javascripts/yelp-login.js"></script>
+					<script src="/javascripts/jquery.js"></script>
+					<script src="/javascripts/bootstrap.js"></script>
+					<script type="text/javascript" src="/javascripts/backstretch.min.js"></script>
+					<script type="text/javascript" src="/javascripts/yelp-login.js"></script>
 					
 
-	</body>
-	</html>
+				</body>
+				</html>
 
