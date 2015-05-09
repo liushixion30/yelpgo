@@ -1,4 +1,3 @@
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,6 +12,7 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook');
 
 
+
 var oracledemo = require('./routes/oracledemo');
 var login = require('./routes/login');
 var register = require('./routes/register');
@@ -23,10 +23,18 @@ var personal_activities = require('./routes/personalactivities');
 var add_friends = require('./routes/addfriends');
 var add_review = require('./routes/addreview');
 var add_activity = require('./routes/addactivity');
+var searchfriends = require('./routes/searchfriends');
+var newfriend = require('./routes/newfriend');
+var accept_friend = require('./routes/accept_friend');
 var friends_activity = require('./routes/friendsactivities');
 var joinactivity = require('./routes/joinactivity');
+var denyfriend = require('./routes/deny_friend');
 
 var app = express();
+
+var server = app.listen(8080, function(){});
+
+GLOBAL.sess;
 GLOBAL.userProfile = '';
 
 passport.serializeUser(function(user, done) {
@@ -40,7 +48,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new FacebookStrategy({
     clientID: "1659474010942337",
     clientSecret: "9329edb56a1b743322e54f0b41485cb9",
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
 	process.nextTick(function() {
@@ -50,6 +58,7 @@ passport.use(new FacebookStrategy({
 	  });
   }
 ));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -67,6 +76,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 app.use('/oracledemo',oracledemo);
 app.use('/login',login);
 app.use('/',login);
@@ -79,15 +89,23 @@ app.use('/',login);
 app.use('/addfriends',add_friends);
 app.use('/addReview', add_review);
 app.use('/addActivity',add_activity);
+app.use('/addfriends',add_friends);
+app.use('/searchfriends',searchfriends);
+app.use('/newfriend',newfriend);
+app.use('/accept_friend',accept_friend);
 app.use('/friendsactivities',friends_activity);
 app.use('/joinActivity',joinactivity);
-app.get('/auth/facebook', passport.authenticate('facebook',{authType: 'reauthenticate', scope: ['email']}));
+app.use(session({secret: 'ssshhhhh'}));
+app.use('denyfriend',denyfriend);
 
+app.get('/auth/facebook', passport.authenticate('facebook',{authType: 'reauthenticate', scope: ['email']}));
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { successRedirect: '/restaurants',
 failureRedirect: '/login'}));
 
 app.get('/logout', function(req, res){req.logout(); res.redirect('/login');});
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

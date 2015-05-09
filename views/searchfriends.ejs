@@ -5,7 +5,6 @@
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link href="/stylesheets/jumbotron.css" rel="stylesheet"> 
 </head>
 <body>
@@ -24,26 +23,37 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/restaurants">Restaurants Info</a></li>
 					<li><a href="/friendsupdates">Friends Updates</a></li>
-					<li><a href="/friendsactivities">Friends Activities</a></li>
 					<li><a href="/personalactivities">Personal Activities</a></li>
 					<li class='active'><a href="/addfriends">Add Friends<span class="sr-only">(current)</span></a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
+				<!-- <ul class="nav navbar-nav navbar-right">
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-							<p>Welcome, <%= userGivenName %> ! </p>
+							<input type="text" class="form-control" placeholder="Search">
 						</div>
-				   </form>
-				</ul>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+				</ul> -->
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>	
 	
-	
-	
 				
 	<div class="container">
-		<!--<textarea rows="5" cols="30" class="review"></textarea> -->
+		<div class="jumbotron">
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="http://placehold.it/64x64" alt="">
+				</a>
+				<div class="form-group">
+					<input type="text" class="form-control friendsname" placeholder="Search">
+				</div>
+				<a class="btn btn-default btn-search">test submit</a>
+			</div>
+		</div>
+		
+		
+	
 		<% for(var i=0; i < allcandidates.length; i++) { %>
 		
 			<div class="container">
@@ -51,10 +61,10 @@
 					<div class="container">
 						<div class="col-md-6">
 							<table class="table table-striped table-hover" >
-								<h3><%= allcandidates[i][2] %>&nbsp;<%=  allcandidates[i][3] %></h1>
+								<h3><%= allcandidates[i][0]%></h1>
 									<tr>
-										<th>ID number</th>
-										<td><%= allcandidates[i][0]  %></td>
+										<th>Name</th>
+										<td><%= allcandidates[i][0]%></td>
 									</tr>
 									<tr>
 										<th>Email</th>
@@ -63,80 +73,25 @@
 								</table>
 				
 								<br>
-								<a id="<%=  allcandidates[i][0]%>" class="btn btn-primary btn-sm btn-add-friend" role="button">Send Request</a>
+								<a id="<%=  allcandidates[i][0]%>r" class="btn btn-primary btn-sm btn-review" role="button">Review this restaurant</a>
 							</div>
 						</div>
 					</div>
 				</div>
 				<% } %>
-	</div>
 	
-	<div class="dialog-form-request" title="Send Request">
-		<p class="validateTips">Do you wanna add the friend?</p>
-		<form>
-			<fieldset>
-				<label for="name">Send a message </label>
-				<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-			</fieldset>
-		</form>
-	</div>
+	
 
 	<!-- Le javascript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 
-		<!-- <script src="/javascripts/jquery.js"></script> -->
-		
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-			
-		<script>
-		$(document).ready(function(){
-			var friendsname;
-			var addfriendname;
-			var dialog, form;
-			var ButtonId;
-			
-			$(".btn-add-friend").on( "click", function(event) {
-				//alert("You have clicked");
-				event.preventDefault();
-				dialog.dialog( "open" );
-				ButtonId = this.id;
-			});
-			
-			function Sendrequest(){
-
-				$.post("/newfriend",{friendid: ButtonId}, function(){
-					 alert("You have successfully send the message!");
-				});
-				form[0].reset();
-				dialog.dialog("close");
-		    }
-			
-			
-			dialog = $( ".dialog-form-request" ).dialog({
-				autoOpen: false,
-				height: 375,
-				width: 350,
-				modal: true,
-				buttons: {
-				"Send request": Sendrequest,
-					  Cancel: function() {
-	  						form[ 0 ].reset();
-	  						dialog.dialog( "close" );
-	  					 }
-	  		    }
-			});
-		    form = dialog.find( "form" ).on( "submit", function( event ) {
-		      event.preventDefault();
-		      Sendrequest();
-		    });
-			
-		});
-		</script>
+		<script src="/javascripts/jquery.js"></script>
 		<script src="/javascripts/bootstrap.js"></script>
 		<script type="text/javascript" src="/javascripts/backstretch.min.js"></script>
-		<script type="text/javascript" src="/javascripts/yelp-login.js"></script>
+		<script type="text/javascript" src="/javascripts/yelp-login.js"></script>		
+		<script>
+		
+		</script>
 	</body>
 	</html>
-

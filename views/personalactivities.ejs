@@ -30,171 +30,86 @@
 				<ul class="nav navbar-nav navbar-right">
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<p>Welcome, <%= userGivenName %> ! </p>
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
+				   </form>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>	
-			
-				
 	<div class="container">
 		<div class="jumbotron">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Current User</a> 
-						<small>commented on </small><a>King's Restaurant</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+			<% for(var i=0; i < personalreview.length; i++) { %>
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" src="http://vignette2.wikia.nocookie.net/feed-the-beast/images/8/88/Shards-64x64.gif/revision/latest?cb=20131110151438" alt="">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading"><a><%= personalreview[i][0]%> </a>
+								<small>commented on </small><a><%= personalreview[i][1]%></a></h4>
+								<%= personalreview[i][2]%>
+					</div>
 				</div>
+				<br><br>
+						<% } %>		
 			</div>
-			<br><br>
-		<!-- </div>
-		<div class="jumbotron"> -->
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Current User</a> 
-						<small>created an activity to </small><a>Don Don Chinese Restaurant</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Come to my page and join me!
-				</div>
-			</div>
-			<br><br>
-		<!-- </div>
-		<div class="jumbotron"> -->
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Current User</a> 
-						<small>commented on </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</div>
-			<br><br>
-		<!-- </div>
-
-		<div class="jumbotron"> -->
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Current User</a> 
-						<small>commented on </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</div>
-			<br><br>
-		<!-- </div>
-
-		<div class="jumbotron"> -->
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Current User</a> 
-						<small>commented on </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</div>
-			<br><br>
-		<!-- </div>
-
-		<div class="jumbotron"> -->
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading"><a>Current User</a> 
-						<small>created a activity to </small><a>Shake Shack</a><small>   August 25, 2014 at 9:30 PM</small>
-					</h4>
-					Come and join me!
-				</div>
-			</div>
-		</div>
 		<div class="jumbotron">
 			<h3>Activities Created</h3><br><br>
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h3 class="media-heading"><a>King's Restaurant</a>
-					</h3>
-					<table class="table table-bordered table-striped" >
-						<tr>
-							<th>Time</th>
-							<td>August 25, 2014 at 9:30 PM</td>
-						</tr>
-						<tr>
-							<th>Members</th>
-							<td><a> Test User 1 </a>, <a> Test User 1 </a></td>
-						</tr>
-					</table>
+			<% for(var i=0; i < personalactivity.length; i++) { %>
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" src="http://vignette2.wikia.nocookie.net/feed-the-beast/images/8/88/Shards-64x64.gif/revision/latest?cb=20131110151438" alt="">
+					</a>
+					<div class="media-body">
+						<h3 class="media-heading"><a><%= personalactivity[i][4]%></a></h3>
+						<table class="table table-bordered table-striped" >
+							<tr>
+								<th>Initiator</th>
+								<td><a><%= userGivenName %> </a></td>
+							</tr>
+							<tr>
+								<th>Time</th>
+								<td><%= personalactivity[i][2]%></td>
+							</tr>
+							<tr>
+								<th>Members</th>	
+								<td>
+								<% for(var j=0; j < peoplelist.length; j++) { %>
+									<% if (personalactivity[i][5] == peoplelist[j][2]) {%>
+									<a><%= peoplelist[j][0]%> <%= peoplelist[j][1]%></a> &nbsp;&nbsp;
+									<%  } %>
+								<% } %>	</td>	
+							</tr>
+							<tr>
+								<th>Comment from <%= userGivenName %></th>
+								<td><%= personalactivity[i][3]%></td>
+							</tr>
+						</table>
+						
+						
+					</div>
 				</div>
-			</div>
-			<br><br>
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h3 class="media-heading"><a>Don Don Chinese</a>
-					</h3>
-					<table class="table table-bordered table-striped" >
-						<tr>
-							<th>Time</th>
-							<td>August 25, 2014 at 9:30 PM</td>
-						</tr>
-						<tr>
-							<th>Members</th>
-							<td><a> Test User 1 </a>, <a> Test User 1 </a></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<br><br>
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object" src="http://placehold.it/64x64" alt="">
-				</a>
-				<div class="media-body">
-					<h3 class="media-heading"><a>Shake Shack</a>
-					</h3>
-					<table class="table table-bordered table-striped" >
-						<tr>
-							<th>Time</th>
-							<td>August 25, 2014 at 9:30 PM</td>
-						</tr>
-						<tr>
-							<th>Members</th>
-							<td><a> Test User 1 </a>, <a> Test User 1 </a></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<br><br>
-			
-			
+						<% } %>
 		</div>
-		
-		
-		
+			<div class="jumbotron">
+				<h3>Friends Requests</h3><br><br>
+				<% for(var i=0; i < friendrequest.length; i++) { %>
+					<div class="container">
+						<div class="col-md-6">
+							<table class="table table-striped table-hover" >
+								<h3><%= friendrequest[i][1] %></h1>
+									<tr>
+										<th>ID number</th>
+										<td><%= friendrequest[i][0]  %></td>
+									</tr>
+							</table>
+							<br>
+							<a id="<%=  friendrequest[i][0]%>" class="btn btn-primary btn-sm btn-accept-friend" role="button">Accept</a>
+							<a id="<%=  friendrequest[i][0]%>" class="btn btn-primary btn-sm btn-deny-friend" role="button">Deny</a>
+						</div>
+					</div>
+					<% } %>
+			</div>
 	</div>
 
 	<!-- Le javascript
@@ -205,7 +120,34 @@
 		<script src="/javascripts/bootstrap.js"></script>
 		<script type="text/javascript" src="/javascripts/backstretch.min.js"></script>
 		<script type="text/javascript" src="/javascripts/yelp-login.js"></script>
-					
+		<script>
+		$(document).ready(function(){
+			var friendsname;
+			var addfriendname;
+			var dialog, form;
+			var ButtonId;
+			
+			$(".btn-accept-friend").on( "click", function(event) {
+				alert("You have accepted the request");
+				event.preventDefault();
+				ButtonId = this.id;
+				$.post("/accept_friend",{friendid: ButtonId}, function(){
+					 alert("You have successfully send the message!");
+				});
+			});
+			
+			$(".btn-deny-friend").on( "click", function(event) {
+				alert("You have deny the request");
+				event.preventDefault();
+				ButtonId = this.id;
+				$.post("/denyfriend",{friendid: ButtonId}, function(){
+					 alert("You have successfully send the message!");
+				});
+			});
+			
+			
+		});
+		</script>				
 
 	</body>
 	</html>

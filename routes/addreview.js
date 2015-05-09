@@ -8,7 +8,6 @@ router.all('/', function(req, res, next) {
 	var resId = req.body.resId;
 	resId = resId.substring(0, resId.length - 1);
 	var addSecond = new Date().getTime() / 1000;
-	// console.log("Review is = "+review + ", user id is = " + userId+", restaurant id = " + resId+ ", addTime is＝ "+addSecond);
 	oracledb.getConnection(
 		{
 			user          : "myusername",
@@ -29,11 +28,10 @@ router.all('/', function(req, res, next) {
 						function(err)
 						{
 							if (err) { console.error(err.message); return; }
+							
 						});
 					});
 				});
 				res.end("yes");
 			});
-
-
 			module.exports = router;

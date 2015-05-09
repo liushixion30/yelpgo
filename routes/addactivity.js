@@ -32,9 +32,10 @@ router.post('/', function(req, res, next) {
 						function(err)
 						{
 							if (err) { console.error(err.message); return; }
+							
 						});
 					});
 				});
-				res.end("yes");
+			res.end("yes");
 			});
 			module.exports = router;

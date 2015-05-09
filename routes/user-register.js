@@ -29,5 +29,4 @@ router.post('/', function(req, res, next) {
 				});
 				res.render('register-success', { title: 'success' });
 			});
-
 			module.exports = router;
